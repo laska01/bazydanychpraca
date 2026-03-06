@@ -1,7 +1,10 @@
 package com.example.pracanalekcjibazydanych;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 
 import androidx.activity.EdgeToEdge;
@@ -29,6 +32,20 @@ public class MainActivity extends AppCompatActivity {
         List<Zwierzeta> wszystkieWypiekiListy = zwierzetaDatabase.ZwrocWszystkieZwierzetaZbazy().ZwrocWszystkieZwierzetaZbazy();
         ArrayAdapter<Zwierzeta> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, wszystkieWypiekiListy);
         listView.setAdapter(arrayAdapter);
+
+        EditText Jakieimie = findViewById(R.id.imie);
+        EditText Jakiwiek = findViewById(R.id.wiek);
+        EditText kolorek = findViewById(R.id.kolor);
+        Button przyciskDodaj = findViewById(R.id.button2);
+
+        przyciskDodaj.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                zwierzetaDatabase.ZwrocWszystkieZwierzetaZbazy().wstawZwierzeDoBazy(new Zwierzeta(Integer.parseInt(Jakiwiek.getText().toString()), Jakieimie.getText().toString(), kolorek.getText().toString()));
+                zwierzetaDatabase.add(new Zwierzeta(Integer.parseInt(Jakiwiek.getText().toString()), Jakieimie.getText().toString(), kolorek.getText().toString()));
+                arrayAdapter.notifyDataSetChanged();
+            }
+        });
     }
 }
 
