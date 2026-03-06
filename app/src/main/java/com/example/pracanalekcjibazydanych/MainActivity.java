@@ -21,3 +21,5 @@ public class MainActivity extends AppCompatActivity {
         zwierzetaDatabase.ZwrocWszystkieZwierzetaZbazy().wstawZwierzeDoBazy(new Zwierzeta("Marcin", "czarny", 67));
     };
 }
+
+
