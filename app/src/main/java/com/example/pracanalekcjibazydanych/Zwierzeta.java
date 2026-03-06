@@ -50,4 +50,13 @@ public class Zwierzeta {
     }
 
     private int wiek;
+    @Override
+    public String toString() {
+        return "Zweirze{" +
+                "id=" + id +
+                ", imie=" + imie +
+                ", kolor=" + kolor +
+                ", wiek='" + wiek + '\'' +
+                '}';
+    }
 }
