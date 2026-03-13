@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         przepisyDatabase.zwrocWypiekiDao().wstawWypiekDoBazy(new Wypiek(170, 60, "Chleb", "mąka, drożdże"));
         przepisyDatabase.zwrocWypiekiDao().zwrocWszystkieWypiekiZBazy();*/
         ListView listView = findViewById(R.id.listview);
-        List<Zwierzeta> wszystkieWypiekiListy = zwierzetaDatabase.ZwrocWszystkieZwierzetaZbazy().ZwrocWszystkieZwierzetaZbazy();
+        List<Zwierzeta> wszystkieWypiekiListy = zwierzetaDatabase.ZwrocWszystkieZwierzetaZbazydao().ZwrocWszystkieZwierzetaZbazy();
         ArrayAdapter<Zwierzeta> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, wszystkieWypiekiListy);
         listView.setAdapter(arrayAdapter);
 
@@ -38,14 +38,28 @@ public class MainActivity extends AppCompatActivity {
         EditText kolorek = findViewById(R.id.kolor);
         Button przyciskDodaj = findViewById(R.id.button2);
 
-        przyciskDodaj.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                zwierzetaDatabase.ZwrocWszystkieZwierzetaZbazy().wstawZwierzeDoBazy(new Zwierzeta(Integer.parseInt(Jakiwiek.getText().toString()), Jakieimie.getText().toString(), kolorek.getText().toString()));
-                zwierzetaDatabase.add(new Zwierzeta(Integer.parseInt(Jakiwiek.getText().toString()), Jakieimie.getText().toString(), kolorek.getText().toString()));
-                arrayAdapter.notifyDataSetChanged();
-            }
-        });
+        //cos tu nie dziala
+//        przyciskDodaj.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                zwierzetaDatabase.ZwrocWszystkieZwierzetaZbazy().wstawZwierzeDoBazy(new Zwierzeta(Integer.parseInt(Jakiwiek.getText().toString()), Jakieimie.getText().toString(), kolorek.getText().toString()));
+//                zwierzetaDatabase.add(new Zwierzeta(Integer.parseInt(Jakiwiek.getText().toString()), Jakieimie.getText().toString(), kolorek.getText().toString()));
+//                arrayAdapter.notifyDataSetChanged();
+//            }
+//        });
+        przyciskDodaj.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        String imie = Jakieimie.getText().toString();
+                        String wiekk = Jakiwiek.getText().toString();
+                        String kolor = kolorek.getText().toString();
+
+//                        Zwierzeta zwierzeta = new
+                        zwierzetaDatabase.ZwrocWszystkieZwierzetaZbazydao().wstawZwierzeDoBazy(new Zwierzeta(imie, kolor, Integer.parseInt(wiekk)));
+                    }
+                }
+        );
     }
 }
 

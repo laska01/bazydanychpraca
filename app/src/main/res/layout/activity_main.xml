@@ -33,7 +33,7 @@
             android:layout_weight="1"
             android:ems="10"
             android:inputType="text"
-            android:text="Name" />
+            android:hint="burek" />
     </LinearLayout>
 
     <LinearLayout
@@ -55,7 +55,7 @@
             android:layout_weight="1"
             android:ems="10"
             android:inputType="number"
-            android:text="Name" />
+            android:hint="wiek" />
     </LinearLayout>
 
     <LinearLayout
@@ -68,7 +68,7 @@
             android:layout_width="41dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="kolor" />
+            android:hint="kolor" />
 
         <EditText
             android:id="@+id/kolor"
@@ -76,7 +76,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
-            android:text="Name" />
+            android:hint="biały.."/>
     </LinearLayout>
     <Button
         android:id="@+id/button2"

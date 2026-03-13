@@ -8,7 +8,7 @@ import androidx.room.RoomDatabase;
 
 @Database(entities = {Zwierzeta.class}, version = 1)
 public abstract class ZwierzetaDatabase extends RoomDatabase {
-    public abstract ZwierzetaDao ZwrocWszystkieZwierzetaZbazy();
+    public abstract ZwierzetaDao ZwrocWszystkieZwierzetaZbazydao();
 
     private static ZwierzetaDatabase instancje;
 
@@ -23,5 +23,8 @@ public abstract class ZwierzetaDatabase extends RoomDatabase {
                     .build();
         }
         return instancje;
+    }
+
+    public void add(Zwierzeta zwierzeta) {
     }
 }

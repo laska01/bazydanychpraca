@@ -17,6 +17,9 @@ public class Zwierzeta {
         this.wiek = wiek;
     }
 
+    public Zwierzeta(int i, String string, String string1) {
+    }
+
     public int getWiek() {
         return wiek;
     }
@@ -52,11 +55,11 @@ public class Zwierzeta {
     private int wiek;
     @Override
     public String toString() {
-        return "Zweirze{" +
+        return "Zweirze" +
                 "id=" + id +
                 ", imie=" + imie +
                 ", kolor=" + kolor +
-                ", wiek='" + wiek + '\'' +
-                '}';
+                ", wiek=" + wiek + '\''
+                ;
     }
 }
